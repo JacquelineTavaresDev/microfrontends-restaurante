@@ -26,15 +26,11 @@ O objetivo é simular um ambiente de desenvolvimento distribuído, onde cada mic
 
 ## Estrutura do Projeto
 
-```text
 microfrontends-restaurante/
 │
 ├── container/
-│
 ├── micro-cardapio/
-│
 └── micro-pedido/
-```
 
 ---
 
@@ -44,24 +40,18 @@ Antes de iniciar, instale as dependências em cada aplicação:
 
 ### Micro Cardápio
 
-```bash
-cd micro-cardapio
-npm install
-```
+cd micro-cardapio  
+npm install  
 
 ### Micro Pedido
 
-```bash
-cd micro-pedido
-npm install
-```
+cd micro-pedido  
+npm install  
 
 ### Container
 
-```bash
-cd container
-npm install
-```
+cd container  
+npm install  
 
 ---
 
@@ -69,52 +59,31 @@ npm install
 
 ### 1. Iniciar o Micro Cardápio
 
-Abra um terminal:
-
-```bash
-cd micro-cardapio
-npm start
-```
+cd micro-cardapio  
+npm start  
 
 Aplicação disponível em:
-
-```text
-http://localhost:3001
-```
+http://localhost:3001  
 
 ---
 
 ### 2. Iniciar o Micro Pedido
 
-Abra outro terminal:
-
-```bash
-cd micro-pedido
-npm start
-```
+cd micro-pedido  
+npm start  
 
 Aplicação disponível em:
-
-```text
-http://localhost:3002
-```
+http://localhost:3002  
 
 ---
 
 ### 3. Iniciar o Container
 
-Abra um terceiro terminal:
-
-```bash
-cd container
-npm start
-```
+cd container  
+npm start  
 
 Aplicação disponível em:
-
-```text
-http://localhost:3000
-```
+http://localhost:3000  
 
 ---
 
@@ -122,23 +91,19 @@ http://localhost:3000
 
 A comunicação entre os micro frontends é realizada utilizando eventos globais do navegador.
 
-Quando o usuário clica no botão **"Adicionar ao pedido"** no Micro Cardápio, é disparado um evento customizado utilizando:
+Quando o usuário clica no botão "Adicionar ao pedido" no Micro Cardápio, é disparado um evento customizado utilizando:
 
-```javascript
 window.dispatchEvent()
-```
 
 O Micro Pedido fica escutando esse evento através de:
 
-```javascript
 window.addEventListener()
-```
 
 Ao receber o evento, o Micro Pedido atualiza sua lista de itens automaticamente.
 
 ### Fluxo da Comunicação
 
-1. Usuário seleciona um prato no Micro Cardápio.
+1. O usuário seleciona um prato no Micro Cardápio.
 2. O Cardápio dispara um evento global contendo os dados do prato.
 3. O Micro Pedido captura o evento.
 4. O item é adicionado à lista de pedidos exibida na tela.
@@ -160,15 +125,11 @@ O Container utiliza o Webpack Module Federation para importar os micros dinamica
 
 Micro Cardápio:
 
-```javascript
 "./Cardapio"
-```
 
 Micro Pedido:
 
-```javascript
 "./Pedido"
-```
 
 Dessa forma, cada micro frontend pode ser desenvolvido e implantado de forma independente, mantendo a integração através do Container.
 
@@ -176,11 +137,11 @@ Dessa forma, cada micro frontend pode ser desenvolvido e implantado de forma ind
 
 ## Funcionalidades
 
-* Listagem de pratos.
-* Adição de itens ao pedido.
-* Atualização dinâmica do pedido.
-* Integração entre micros utilizando eventos globais.
-* Carregamento remoto com Module Federation.
+* Listagem de pratos
+* Adição de itens ao pedido
+* Atualização dinâmica do pedido
+* Integração entre micros utilizando eventos globais
+* Carregamento remoto com Module Federation
 
 ---
 

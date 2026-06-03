@@ -4,6 +4,10 @@ body {
   background-color: #f5f5f5;
 }
 
+/* =========================
+   APP / CONTAINER PRINCIPAL
+========================= */
+
 .app {
   padding: 20px;
 }
@@ -14,15 +18,116 @@ body {
   margin-bottom: 30px;
 }
 
+/* Container dos microfrontends */
 .container-micros {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
+/* Cards dos micros (Cardápio e Pedido) */
 .card {
   flex: 1;
   background: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-width: 300px;
+}
+
+/* RESPONSIVO (tutor pediu isso explicitamente) */
+@media (max-width: 768px) {
+  .container-micros {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+/* =========================
+   CARDÁPIO
+========================= */
+
+.cardapio {
+  width: 100%;
+}
+
+.titulo-cardapio {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.lista-pratos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Card de cada prato */
+.prato-card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  transition: 0.2s ease;
+}
+
+.prato-card:hover {
+  transform: translateY(-2px);
+}
+
+/* textos do prato */
+.prato-nome {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.prato-descricao {
+  margin: 8px 0;
+  color: #666;
+}
+
+/* botão adicionar */
+.btn-adicionar {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: none;
+  background: #333;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-adicionar:hover {
+  background: #555;
+}
+
+/* =========================
+   PEDIDO (CARRINHO)
+========================= */
+
+.lista-pedido {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item-pedido {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.item-pedido p {
+  margin: 5px 0 0;
+  color: #666;
+}
+
+/* estado vazio do pedido */
+.pedido-vazio {
+  color: #777;
+  font-style: italic;
 }
